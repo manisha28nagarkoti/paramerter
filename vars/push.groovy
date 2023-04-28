@@ -1,0 +1,7 @@
+def call(){
+    sh'''
+    sudo aws ecr get-login-password --region ${env.region} | sudo docker login --username AWS --password-stdin ${env.ecr_url}
+    sudo docker tag ${env.image_name}:${env.tag} ${env.repo_url}:${env.tag}
+    sudo docker push ${env.repo_url}:${env.tag}
+    '''
+}
