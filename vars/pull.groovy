@@ -1,6 +1,6 @@
 def pull(){
     sh '''
-        sudo docker pull ${env.image_name}:${env.tag}
+        sudo docker pull "${param.image_name}":"${param.tag}"
         ls
     '''
     
